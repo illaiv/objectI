@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="robotInfo"></div>
+    <div class ="displayStr"></div>
+
+    <script>
+robot = {
+    name: "bob",
+    manufacturer: "vialli",
+    skills: {
+        skill1: "cleaning",
+        skill2: "cooking",
+        skill3: "garden keeping",
+
+    },
+   skillCheck: function(skillName) {
+for (let skill in this.skills) {
+    if (this.skills[skill] === skillName) {
+        return true;
+
+    }
+}
+return false; 
+        
+    }
+};
+let robotInfo = "";
+
+if (robot.skillCheck("cleaning")) {
+robotInfo += "<p>The robot can clean.</p>";
+} else {
+    robotInfo += "<p>The robot cannot clean.</p>";
+
+}
+if (robot.skillCheck("cooking")) {
+robotInfo += "<p>The robot can cook.</p>";
+} else {
+    robotInfo += "<p>The robot cannot cook.</p>";
+
+}
+if (robot.skillCheck("garden keeping")) {
+robotInfo += "<p>The robot can garden keep.</p>";
+} else {
+    robotInfo += "<p>The robot cannot garden keep.</p>";
+
+}
+
+let displayStr = `The robot's name is ${robot.name}, who was made by ${robot.manufacturer}, and has these skills: ${robot.skills.skill1}, ${robot.skills.skill2}, ${robot.skills.skill3}`
+
+
+let refToRobotInfo = document.querySelector(".robotInfo");
+refToRobotInfo.innerHTML = robotInfo;
+
+let refToDisplayStr = document.querySelector(".displayStr");
+refToDisplayStr.innerHTML = displayStr;
+    </script>
+</body>
+</html>
